@@ -1,0 +1,7 @@
+C:\Users\spenc\desktop\Grades\Grades\bin\Debug\Grades.exe.config
+C:\Users\spenc\desktop\Grades\Grades\bin\Debug\Grades.exe
+C:\Users\spenc\desktop\Grades\Grades\bin\Debug\Grades.pdb
+C:\Users\spenc\desktop\Grades\Grades\obj\Debug\Grades.csprojAssemblyReference.cache
+C:\Users\spenc\desktop\Grades\Grades\obj\Debug\Grades.csproj.CoreCompileInputs.cache
+C:\Users\spenc\desktop\Grades\Grades\obj\Debug\Grades.exe
+C:\Users\spenc\desktop\Grades\Grades\obj\Debug\Grades.pdb
