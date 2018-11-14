@@ -14,13 +14,17 @@ namespace Grades.Tests
         public void ComputeHighestGrade()
         {
             GradeBook book = new GradeBook();
+            GradeBook book2 = new GradeBook();
             book.AddGrade(10);
             book.AddGrade(90);
+            book2.AddGrade(100);
 
             //making a gradestatistics object calling it result and invoking a method of compute statistics
             GradeStatistics result = book.ComputeStatistics();
+            GradeStatistics result2 = book2.ComputeStatistics();
             //aserting that the highest grade is in act the highest grade 
             Assert.AreEqual(90, result.HighestGrade);
+            Assert.AreNotEqual(result.HighestGrade, result2.HighestGrade);
         }
 
         [TestMethod]
