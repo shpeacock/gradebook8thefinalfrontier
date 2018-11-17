@@ -13,20 +13,23 @@ namespace Grades
             //creating an object of class gradebook
             GradeBook book = new GradeBook();
             //using a method from gradebook to add grades to a list of this object/instance of gradebook
-            book.NameChanged = new NameChangedDelegate(OnNameChanged);
-            book.Name = "Spences Gradebook";
+            book.NameChanged += OnNameChanged;
+   
 
-         
+            book.Name = "Spences Gradebook";
+            book.Name = "Spen";
+
+
             book.AddGrade(91);
             book.AddGrade(89.5f);
             book.AddGrade(75);
-            
-            
+
+
             GradeStatistics stats = book.ComputeStatistics();
-         //
-            WriteResult("Average" , stats.AverageGrade);
+            //
+            WriteResult("Average", stats.AverageGrade);
             WriteResult("Highest Grade", stats.HighestGrade);
-            WriteResult("Lowest Grade" ,stats.LowestGrade);
+            WriteResult("Lowest Grade", stats.LowestGrade);
 
         }
         static void WriteResult(string description, float result)
@@ -34,9 +37,10 @@ namespace Grades
             Console.WriteLine("{0}: {1:F2}", description, result);
         }
 
-        static void OnNameChanged(string existingName, string newName)
+        static void OnNameChanged(object sender, NameChangedEventArgs args)
         {
-            Console.WriteLine($"Grade Book Changing Name From {existingName} to {newName}");
+            Console.WriteLine($"Grade Book Changing Name From {args.ExistingName} to {args.NewName}");
         }
+
     }
 }
