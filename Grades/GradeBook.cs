@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,12 @@ namespace Grades
             stats.AverageGrade = sum / grades.Count;
             return stats;
         }
+
+        internal void WriteGrade(TextWriter @out)
+        {
+            throw new NotImplementedException();
+        }
+
         public void AddGrade(float grade)
         {
             grades.Add(grade);
