@@ -13,16 +13,16 @@ namespace Grades
             //creating an object of class gradebook
             GradeBook book = new GradeBook();
             
-            book.AddGrade(91);
-            book.AddGrade(89.5f);
-            book.AddGrade(75);
+            book.AddGrade(50);
+            book.AddGrade(65.5f);
+            book.AddGrade(10);
 
             GradeStatistics stats = book.ComputeStatistics();
         
             WriteResult("Average", stats.AverageGrade);
             WriteResult("Highest Grade", stats.HighestGrade);
             WriteResult("Lowest Grade", stats.LowestGrade);
-            WriteResult("Grade", stats.LetterGrade);
+            WriteResult(stats.Description, stats.LetterGrade);
         }
         static void WriteResult(string description, string result)
         {

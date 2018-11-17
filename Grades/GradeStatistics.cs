@@ -14,6 +14,33 @@ namespace Grades
             LowestGrade = float.MaxValue;
         }
 
+        public string Description
+        {
+            get
+            {
+                string result;
+                switch(LetterGrade)
+                {
+                    case "A":
+                        result = "Excellent";
+                        break;
+                    case "B":
+                        result = "Decent";
+                        break;
+                    case "C":
+                        result = "Adequate";
+                        break;
+                    case "D":
+                        result = "Meh";
+                        break;
+                    default:
+                        result = "eesh time to start thinkin of a backup plan";
+                        break;
+                }
+                return result;
+            }
+        }
+
         public string LetterGrade
         {
             get
