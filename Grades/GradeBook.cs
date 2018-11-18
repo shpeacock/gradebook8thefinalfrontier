@@ -9,7 +9,6 @@ namespace Grades
 {
     public class GradeBook
     {
-
         public GradeBook()
         {
 
@@ -22,19 +21,22 @@ namespace Grades
             GradeStatistics stats = new GradeStatistics();
 
             float sum = 0;
-            foreach(float grade in grades)
+            foreach (float grade in grades)
             {
                 stats.HighestGrade = Math.Max(grade, stats.HighestGrade);
                 stats.LowestGrade = Math.Min(grade, stats.LowestGrade);
-                sum += grade; 
+                sum += grade;
             }
             stats.AverageGrade = sum / grades.Count;
             return stats;
         }
 
-        internal void WriteGrade(TextWriter @out)
+        public void WriteGrade(TextWriter destination)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < grades.Count; i++)
+            {
+                destination.WriteLine(grades[i]);
+            }
         }
 
         public void AddGrade(float grade)
@@ -50,24 +52,26 @@ namespace Grades
             }
             set
             {
-                if (!String.IsNullOrEmpty(value))
+                if(string.IsNullOrEmpty(value))
                 {
-                    if(_name != value)
-                      {
-                        NameChangedEventArgs args = new NameChangedEventArgs();
-                        args.ExistingName = _name;
-                        args.NewName = value;
-
-                        NameChanged(this, args);
-                      }
-
-                    _name = value;
+                    throw new ArgumentException("uh uh uh...You didn't enter a name!!");
                 }
+                if (_name != value && NameChanged != null)
+                {
+                    NameChangedEventArgs args = new NameChangedEventArgs();
+                    args.ExistingName = _name;
+                    args.NewName = value;
+
+                    NameChanged(this, args);
+                }
+
+                _name = value;
+
             }
         }
         public event NameChangedDelegate NameChanged;
         private string _name;
-        private List<float> grades ;
+        private List<float> grades;
 
     }
 }
