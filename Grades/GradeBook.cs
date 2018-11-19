@@ -16,8 +16,9 @@ namespace Grades
             grades = new List<float>();
         }
 
-        public GradeStatistics ComputeStatistics()
+        public virtual GradeStatistics ComputeStatistics()
         {
+            Console.WriteLine("Gradebook::ComputeStatistics");
             GradeStatistics stats = new GradeStatistics();
 
             float sum = 0;
@@ -43,35 +44,7 @@ namespace Grades
         {
             grades.Add(grade);
         }
-
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                if(string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException("uh uh uh...You didn't enter a name!!");
-                }
-                if (_name != value && NameChanged != null)
-                {
-                    NameChangedEventArgs args = new NameChangedEventArgs();
-                    args.ExistingName = _name;
-                    args.NewName = value;
-
-                    NameChanged(this, args);
-                }
-
-                _name = value;
-
-            }
-        }
-        public event NameChangedDelegate NameChanged;
-        private string _name;
-        private List<float> grades;
+        protected List<float> grades;
 
     }
 }

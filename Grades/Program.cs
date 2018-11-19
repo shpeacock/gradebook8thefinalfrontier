@@ -11,16 +11,20 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            //creating an object of class gradebook
-            GradeBook book = new GradeBook();
+            GradeBook book = new ThrowAwayGradeBook();
 
-            GetBookName(book);
+          //  GetBookName(book);
 
             AddGrades(book);
-
             SaveGrades(book);
             WriteResults(book);
             Console.WriteLine("this has been a report of " + book.Name + "'s grades");
+        }
+
+        private static GradeBook CreateGradebook()
+        {
+            //creating an object of class gradebook
+            return new ThrowAwayGradeBook();
         }
 
         private static void WriteResults(GradeBook book)
@@ -42,7 +46,7 @@ namespace Grades
 
         private static void AddGrades(GradeBook book)
         {
-            book.AddGrade(50);
+            book.AddGrade(65.5f);
             book.AddGrade(65.5f);
             book.AddGrade(10);
         }
